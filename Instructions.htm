@@ -1,0 +1,353 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <title>Freightquote Shipping Module for osCommerce</title>
+    <link rel="shortcut icon" href="images/freightquote.ico" />
+    <style>
+*{padding: 0;margin: 0}
+      body, html {
+        color: #000; 
+        font: 12px arial,verdana;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        min-width: 760px;
+        margin:0;
+        background: url(images/main_bg.gif) repeat-x;
+      }
+      a {
+        outline: none;
+      }
+      a img {
+        border: 0;
+      }
+      .clear { clear: both; }
+      #mainContainer {
+        min-height: 500px;
+        width: 860px;
+        margin: 2px auto 0 auto;
+        background: transparent url(images/content_bg.gif) no-repeat;
+        padding: 20px 10px 0 10px;
+      }
+      * html #mainContainer {
+        height: 500px;
+      }
+      #header {
+        width:100%;
+        color: #fff;
+        height: 100px;
+        position:relative;
+        border-bottom:1px solid #a5bbd9;
+        background: url(images/header_bground.gif) repeat-x;
+      }
+      div#header #logo {
+        float: left;
+      }
+      div#header #title {
+        float: left;
+        margin: 26px 0 0 0;
+      }
+      div#header #title h2 {
+        margin: 0;
+        padding: 0;
+      }
+      div#header #title h1 {
+        font: 28px Arial, Verdana, sans-serif;
+        font-weight: bold;
+        color: #365a7c;
+        margin: 0;
+        padding: 0;
+      }
+      #left_column {
+        float: left;
+        width: 155px;
+        padding: 5px;
+        position: relative;
+      }
+      .outer {
+        padding-left: 205px;
+        background: url(images/head_bground.gif) repeat-x;
+      }
+      .inner {
+        width: 100%;
+        padding-bottom: 25px;
+        
+      }
+      .float-wrap {
+        float: left;
+        width: 100%;
+        margin-left: -205px;
+      }
+      #content {
+        float: right;
+        margin-right: -205px;
+        width: 100%;
+        position: relative;
+        padding-top: 10px;
+      }
+      .contentWrap {
+        padding: 10px;
+      }
+      .contentWrap p {
+        padding: 5px 25px 5px 20px;
+      }
+      h1 {
+        line-height:15px; 
+        font-size: 22px;
+        color: #333333;
+        font-weight:bold;
+        padding:10px;
+        padding-bottom:20px;
+      }
+      
+      h2 {
+        line-height:15px; 
+        font-size: 16px;
+        color: #333333;
+        font-weight:bold;
+        padding-left:20px;
+      }
+      fieldset {
+        border: 1px solid #6b6f70;
+        padding: 10px;
+        margin: 0 20px 20px 20px;
+      }
+      fieldset ol {
+        margin-left:30px;
+        line-height:30px;
+      }
+      legend {
+        background: #f1f3f5;
+        border: 1px solid #6b6f70;
+        font-weight: bold;
+        padding: 4px;
+        font-size: 14px;
+        margin: 0 -11px;
+        width: 585px;
+      }
+      textarea {
+        height: 90px;
+        width: 100%;
+        *width:97%;
+        border: 1px solid #000;
+        background-color: #EFEFEF;
+      }
+      
+      #footer {
+        height: 100px;
+        width: 880px;
+        margin: 0 auto 20px auto;
+        background: url(images/footer.gif) 0 100% no-repeat;
+        text-align: center;
+        color: #3c4664;
+        clear:both;
+      }
+      #footer-inner {
+        border-top:1px solid #a5bbd9;
+        margin: 0 10px;
+        height: 100%;
+        padding-top: 30px;
+        background: url(images/footer_bg.gif) repeat-x;
+      }
+      #footer #copyright {
+        padding:6px 0 0 20px;
+        float:left;
+      }
+      
+      #footer #credit {
+        padding: 6px 10px 0 0;
+        float:right;
+        background:url(images/delogo.gif) 205px 4px no-repeat;
+        padding-right: 220px;
+        height:20px;
+        cursor:pointer;
+        *cusor:hand;
+      }
+      #left_column ul {
+        padding:30px 0 0 30px;
+      }
+      #left_column li {
+        padding-bottom:10px;
+      }
+      #left_column a {
+        color:#000;
+        font-size:14px;
+        font-weight:bold;
+        text-decoration:none;
+      }
+      #left_column a:hover {
+        color:#ff8e00;
+      }
+      p.question {
+        font: 16px Arial,Helvetica,Verdana;
+        font-weight:bold;
+      }
+      p.answer {
+        margin:0 0 20px 20px;
+      }
+      .content-ol {
+        padding-left:60px;
+        line-height:24px;
+      }
+
+
+    </style>
+    <script language="javascript">
+      function showPane(id) {
+        var panels = new Array('overview', 'installation', 'use', 'faq');
+        
+        for (x = 0; x < 4; x++)
+          if (id != panels[x])
+            document.getElementById("p_"+panels[x]).style.display = "none";
+
+        document.getElementById("p_"+id).style.display = "block";
+        
+        window.scroll(0,0);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="mainContainer">
+      <div id="header">
+        <div id="logo"><a href="#overview" onclick="showPane('overview');"><img src="images/logo.gif" alt="Freightquote.com" /></a></div>
+        <div id="title">
+          <h1>Freightquote.com Shipping Module</h1>
+          <h2>for osCommerce 2.2 MS2+</h2>
+        </div>
+      </div> 
+      <div class="outer">
+        <div class="inner">
+          <div class="float-wrap">
+            <div id="content"> 
+              <div id="p_overview" class="contentWrap">
+                <h1>Freightquote.com Shipping Module for osCommerce</h1>
+                <br />
+                <h2>Fast, Simple Freight Shipping</h2>
+                <p>Freightquote.com® gives you instant comparisons from lots of great carriers. Choose the best freight rates and service options for truckload and less than truckload (LTL) shipping, intermodal, air freight services and international freight shipping. Our user-friendly tools automate everything - pricing, pickups, documents, and tracking.</p>
+                <br /><br />
+                <h2>What does this shipping module do?</h2>
+                <p>This shipping module integrates with Freightquote.com to provide instant quotes on freight shipments at checkout.  This will also modify the product editor in your store's administration so that you can specificy shipping details for each product in your store.</p>
+              </div>
+              <div id="p_installation" class="contentWrap" style="display:none">
+                <h1>Installation Instructions</h1>
+                <fieldset>
+                  <legend>Step 1 - <i>Back Up Your Store</i></legend>
+                  <ol>
+                    <li>Back up your database by going to Admin -> Tools -> Database Backup</li>
+                    <li>Back up your store by using your web host's control panel or downloading all files using an FTP client.  Contact your web host for more information.</li>
+                  </ol>
+                </fieldset>
+                <fieldset>
+                  <legend>Step 2 - <i>Upload All Files</i></legend>
+                  <p>Upload all of the files in the "catalog" directory to your store.</p>
+                </fieldset>
+                <fieldset>
+                  <legend>Step 3 - <i>Update /<u>admin</u>/categories.php</i></legend>
+                  <b>In /admin/categories.php, find this line of code:</b>
+                  <textarea>require('includes/application_top.php');</textarea>
+                  <br /><br />
+                  <b>Then add this block of code <b>BELOW</b> it:</b>
+                  <textarea>//---Freightquote Modification START ---//	
+  require(DIR_WS_INCLUDES . 'freightquote/freightquote_admin.php');
+  $freightQuote = new freightQuote();
+//---Freightquote Modification END ---//</textarea>
+                </fieldset>
+                <fieldset>
+                  <legend>Step 4 - <i>Update /<u>admin</u>/categories.php</i></legend>
+                  <b>In /admin/categories.php, find this block of code:</b>
+                  <textarea>          if (isset($HTTP_POST_VARS['products_image']) && tep_not_null($HTTP_POST_VARS['products_image']) && ($HTTP_POST_VARS['products_image'] != 'none')) {
+            $sql_data_array['products_image'] = tep_db_prepare_input($HTTP_POST_VARS['products_image']);
+          }</textarea>
+                  <br /><br />
+                  <b>Then add this block of code <b>ABOVE</b> it:</b>
+                  <textarea>          //---Freightquote Modification START ---//
+          $sql_data_array = $freightQuote->mergeUpdateProductParameters($sql_data_array);
+          //---Freightquote Modification END ---//</textarea>
+                </fieldset>
+                <fieldset>
+                  <legend>Step 5 - <i>Update /<u>admin</u>/categories.php</i></legend>
+                  <b>In /admin/categories.php, find this line of code:</b>
+                  <textarea>$pInfo = new objectInfo($parameters);</textarea>
+                  <br /><br />
+                  <b>Then add this block of code <b>ABOVE</b> it:</b>
+                  <textarea>    //---Freightquote Modification START ---//	
+    $parameters = $freightQuote->mergePostParameters($parameters);
+    //---Freightquote Modification END ---//</textarea>
+                </fieldset>
+                <fieldset>
+                  <legend>Step 6 - <i>Update /<u>admin</u>/categories.php</i></legend>
+                  <b>In /admin/categories.php, find this line of code:</b>
+                  <textarea>$pInfo->objectInfo($product);</textarea>
+                  <br /><br />
+                  <b>Then add this block of code <b>ABOVE</b> it:</b>
+                  <textarea>      //---Freightquote Modification START ---//
+      $product = $freightQuote->mergeDatabaseColumns($product);
+      //---Freightquote Modification END ---//</textarea>
+                </fieldset>
+                <fieldset>
+                  <legend>Step 7 - <i>Update /<u>admin</u>/categories.php</i></legend>
+                  <b>In /admin/categories.php, find this block of code:</b>
+                  <textarea>          <tr>
+            <td class="main"><?php echo TEXT_PRODUCTS_WEIGHT; ?></td>
+            <td class="main"><?php echo tep_draw_separator('pixel_trans.gif', '24', '15') . '&nbsp;' . tep_draw_input_field('products_weight', $pInfo->products_weight); ?></td>
+          </tr></textarea>
+                  <br /><br />
+                  <b>Then add this block of code <b>BELOW</b> it:</b>
+                  <textarea><!--//---Freightquote Modification START ---//-->
+<?php $freightQuote->showInterface(); ?>
+<!--//---Freightquote Modification END ---//--></textarea>
+                </fieldset>
+                <br />
+                <h2>All done?  Now to go <a href="#use" onclick="showPane('use');">"How to Use."</a></h2>
+              </div>
+              <div id="p_use" class="contentWrap" style="display:none">
+                <h1>How to Use</h1>
+                <fieldset>
+                  <legend>Step 1 - <i>Enable the Freightquote.com Shipping Module</i></legend>
+                  <ol>
+                    <li>Log into your store's administration and go to Modules -> Shipping</li>
+                    <li>Click on the "Freightquote.com" module and then "Install" to install the module.</li>
+                    <li>Configure the module using your username and password and cutomize the other settings to best fit your shipping practices.</li>
+                  </ol>
+                </fieldset>
+                <fieldset>
+                  <legend>Step 2 - <i>Configure Your Products</i></legend>
+                  <p>Edit each of your products and configure the options found in the box labeled, "Freightquote.com Shipping Information."  <b>Remember</b>, only products with "Enable with Freightquote" checked will be included in shipping quotes.</p>
+                </fieldset>
+              </div>
+              <div id="p_faq" class="contentWrap" style="display:none">
+                <h1>Frequently Asked Questions</h1>
+                <p class="question">Q: Do I need an account with Freightquote.com to use this service?</p>
+                <p class="answer">Yes, you can sign up for a free account by <a href="https://www.freightquote.com/Tour/SignUp.aspx" target="_BLANK">clicking here</a>.</p>
+                
+                <p class="question">Q: Why does my shipping quote say that products were excluded?</p>
+                <p class="answer">Products that have not been enabled to use the Freightquote.com shipping method or are missing required information will be excluded from the quote.  Check all of your products and ensure that all required fields have been completed.</p>
+                
+                <p class="question">Q: The module is enabled but does not appear as a shipping option.  Why?</p>
+                <p class="answer">If no products in the customer's cart have their shipping options configured, the module will disable itself instead of displaying an error.  The best practice is to enable free shipping under Modules -> Order Totals -> Shipping and then change the "Free Shipping" language to something that informs the customer that their shipping costs will be calculated afterwards.</p>
+              </div>
+            </div>
+            <div id="left_column"> 
+              <ul>
+                <li><a href="#overview" onclick="showPane('overview');">Overview</a></li>
+                <li><a href="#installation" onclick="showPane('installation');">How to Install</a></li>
+                <li><a href="#use" onclick="showPane('use');">How to Use</a></li>
+                <li><a href="#faq" onclick="showPane('faq');">Questions?</a></li>
+              </ul>
+            </div>
+            <div class="clear"></div> 
+          </div>
+          <div class="clear"></div> 
+        </div>
+      </div>
+    </div>
+    <div id="footer">
+      <div id="footer-inner">
+        <div id="copyright">&copy; 2010 Freightquote.com, All rights reserved </div>
+        <div id="credit" onclick="window.location.href='mai'+'lto'+':sales'+'&#064;dy'+'nam'+'oef'+'fects'+'.c'+'om'">Developed for Freightquote.com by:</div>
+      </div>
+    </div>
+  </body>
+</html>

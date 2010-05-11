@@ -18,6 +18,5 @@ define('MODULE_SHIPPING_FREIGHTQUOTE_TEXT_SHIPMENT_LABEL', 'Thank you for shoppi
 
 /* Error Messages */
 define('MODULE_SHIPPING_FREIGHTQUOTE_TEXT_ERROR_DESCRIPTION', 'We\'re sorry, but an error occured while calculating your shipping prices.');
-define('MODULE_SHIPPING_FREIGHTQUOTE_TEXT_ERROR_XML', 'Your installation is missing the required XML files.  Please ensure that this shipping module is fully installed.');
 define('MODULE_SHIPPING_FREIGHTQUOTE_TEXT_ERROR_CURL', 'The application used to retrieve quotes is not present on your server.  Please contact your webhost regarding installing cURL on your account.');
 ?>
